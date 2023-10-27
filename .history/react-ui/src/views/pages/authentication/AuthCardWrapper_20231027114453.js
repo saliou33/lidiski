@@ -23,10 +23,9 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     content: {
-        paddingX: theme.spacing(5) + ' !important',
-        paddingY: theme.spacing(2),
+        padding: theme.spacing(2) + ' !important',
         [theme.breakpoints.down('lg')]: {
-            paddingX: theme.spacing(3) + ' !important'
+            padding: theme.spacing(1) + ' !important'
         }
     }
 }));

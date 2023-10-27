@@ -35,11 +35,9 @@ user_edit_model = rest_api.model('UserEditModel', {"userID": fields.String(requi
                                                    "email": fields.String(required=True, min_length=4, max_length=64)
                                                    })
 
-role_model =  rest_api.model('Role', {"id": fields.Integer(required=True),
-                                      "name": fields.String(required=True)})
-
 roles_edit_model = rest_api.model('UserEditRole', {"id": fields.String(required=True),
-                                                   "roles": fields.List(fields.Nested(role_model), required=True)})
+                                                 "roles": fields.List(required=True)
+                                                 })
 
 """
    Helper function for JWT token required
@@ -111,13 +109,7 @@ class Register(Resource):
 
         new_user = User(username=_username, name=_name, email=_email)
         new_user.set_password(_password)
-        
-        role = Role.query.filter_by(name = 'USER').first()
-        
-        if role is None:
-            role = Role(name="USER")
-        
-        new_user.roles.append(role)
+        new_user.roles.append(Role.query.filter_by(name = 'USER').first())
         new_user.save()
 
         return {"success": True,

@@ -49,8 +49,8 @@ const Register = () => {
                                                     >
                                                         S'inscrire
                                                     </Typography>
-                                                    <Typography variant="caption" fontSize="14px" textAlign={matchDownSM ? 'center' : ''}>
-                                                        Veuillez remplir les champs.
+                                                    <Typography variant="caption" fontSize="16px" textAlign={matchDownSM ? 'center' : ''}>
+                                                        Entrer vos informations.
                                                     </Typography>
                                                 </Stack>
                                             </Grid>

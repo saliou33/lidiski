@@ -7,16 +7,16 @@ import { Divider, Grid, Stack, Typography, useMediaQuery } from '@material-ui/co
 
 // project imports
 import AuthWrapper1 from './../AuthWrapper1';
-import AuthCardWrapper from './../AuthCardWrapper';
 import Logo from './../../../../ui-component/Logo';
-import RestRegister from './RestRegister';
+import AuthCardWrapper from './../AuthCardWrapper';
+import RestLogin from './RestLogin';
 import AuthFooter from './../../../../ui-component/cards/AuthFooter';
 
 // assets
 
-//===============================|| AUTH3 - REGISTER ||===============================//
+//================================|| LOGIN MAIN ||================================//
 
-const Register = () => {
+const Login = () => {
     const theme = useTheme();
     const matchDownSM = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -26,13 +26,14 @@ const Register = () => {
                 <Grid item xs={12}>
                     <Grid container justifyContent="center" alignItems="center" sx={{ minHeight: 'calc(100vh - 68px)' }}>
                         <Grid item sx={{ m: { xs: 1, sm: 3 }, mb: 0 }}>
+                            <Grid container sx={{ mb: 3 }} justifyContent="center">
+                                <RouterLink to="#">
+                                    <Logo />
+                                </RouterLink>
+                            </Grid>
                             <AuthCardWrapper>
                                 <Grid container spacing={2} alignItems="center" justifyContent="center">
-                                    <Grid item sx={{ mb: 0 }}>
-                                        <RouterLink to="#">
-                                            <Logo />
-                                        </RouterLink>
-                                    </Grid>
+                 
                                     <Grid item xs={12}>
                                         <Grid
                                             container
@@ -47,17 +48,17 @@ const Register = () => {
                                                         gutterBottom
                                                         variant={matchDownSM ? 'h3' : 'h2'}
                                                     >
-                                                        S'inscrire
+                                                        Se Connecter
                                                     </Typography>
-                                                    <Typography variant="caption" fontSize="14px" textAlign={matchDownSM ? 'center' : ''}>
-                                                        Veuillez remplir les champs.
+                                                    <Typography variant="caption" fontSize="16px" textAlign={matchDownSM ? 'center' : ''}>
+                                                        Entrer vos identifiants pour continuer.
                                                     </Typography>
                                                 </Stack>
                                             </Grid>
                                         </Grid>
                                     </Grid>
                                     <Grid item xs={12}>
-                                        <RestRegister />
+                                        <RestLogin />
                                     </Grid>
                                     <Grid item xs={12}>
                                         <Divider />
@@ -66,11 +67,11 @@ const Register = () => {
                                         <Grid item container direction="column" alignItems="center" xs={12}>
                                             <Typography
                                                 component={RouterLink}
-                                                to="/login"
+                                                to="/register"
                                                 variant="subtitle1"
                                                 sx={{ textDecoration: 'none' }}
                                             >
-                                                Vous avez un compte?
+                                                Vous n'avez pas de compte?
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -79,9 +80,10 @@ const Register = () => {
                         </Grid>
                     </Grid>
                 </Grid>
+
             </Grid>
         </AuthWrapper1>
     );
 };
 
-export default Register;
+export default Login;

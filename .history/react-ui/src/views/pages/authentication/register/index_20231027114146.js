@@ -28,7 +28,7 @@ const Register = () => {
                         <Grid item sx={{ m: { xs: 1, sm: 3 }, mb: 0 }}>
                             <AuthCardWrapper>
                                 <Grid container spacing={2} alignItems="center" justifyContent="center">
-                                    <Grid item sx={{ mb: 0 }}>
+                                    <Grid item >
                                         <RouterLink to="#">
                                             <Logo />
                                         </RouterLink>
@@ -49,8 +49,8 @@ const Register = () => {
                                                     >
                                                         S'inscrire
                                                     </Typography>
-                                                    <Typography variant="caption" fontSize="14px" textAlign={matchDownSM ? 'center' : ''}>
-                                                        Veuillez remplir les champs.
+                                                    <Typography variant="caption" fontSize="16px" textAlign={matchDownSM ? 'center' : ''}>
+                                                        Entrer vos informations.
                                                     </Typography>
                                                 </Stack>
                                             </Grid>

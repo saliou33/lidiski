@@ -60,6 +60,6 @@ class BaseConfig():
         # This will create a file in <app> FOLDER
         SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
         
-    # print(f'SQLALCHEMY_DATABASE_URI {SQLALCHEMY_DATABASE_URI}')
+    print(f'SQLALCHEMY_DATABASE_URI {SQLALCHEMY_DATABASE_URI}')
         
         

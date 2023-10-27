@@ -111,13 +111,7 @@ class Register(Resource):
 
         new_user = User(username=_username, name=_name, email=_email)
         new_user.set_password(_password)
-        
-        role = Role.query.filter_by(name = 'USER').first()
-        
-        if role is None:
-            role = Role(name="USER")
-        
-        new_user.roles.append(role)
+        new_user.roles.append(Role.query.filter_by(name = 'USER').first())
         new_user.save()
 
         return {"success": True,

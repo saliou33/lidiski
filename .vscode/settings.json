@@ -1,0 +1,22 @@
+{
+    "sqltools.useNodeRuntime": true,
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:projet-aby}/api-server-flask/api/db.sqlite3",
+            "name": "lidiki",
+            "group": "lidiki"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "lidiski-postgres",
+            "group": "postgres",
+            "database": "lidiski",
+            "username": "postgres"
+        }
+    ]
+}
