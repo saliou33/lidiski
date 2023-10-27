@@ -36,7 +36,10 @@ import { LOGOUT } from './../../../../store/actions';
 
 // assets
 import { IconLogout, IconSearch, IconSettings } from '@tabler/icons';
-import User1 from './../../../../assets/images/users/user-round.svg';
+// import User1 from './../../../../assets/images/users/user-round.svg';
+import User1 from './../../../../assets/images/users/avatar.png';
+
+
 
 // style const
 const useStyles = makeStyles((theme) => ({
@@ -122,6 +125,7 @@ const ProfileSection = () => {
     const theme = useTheme();
     const customization = useSelector((state) => state.customization);
     const account = useSelector((state) => state.account);
+    console.log(account);
     const dispatcher = useDispatch();
 
     const [sdm, setSdm] = React.useState(true);
@@ -132,7 +136,6 @@ const ProfileSection = () => {
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
     const handleLogout = () => {
-        console.log(account.token);
         axios
             .post( configData.API_SERVER + 'users/logout', {token: `${account.token}`}, { headers: { Authorization: `${account.token}` } })
             .then(function (response) {
@@ -215,13 +218,13 @@ const ProfileSection = () => {
                                     <CardContent className={classes.cardContent}>
                                         <Grid container direction="column" spacing={0}>
                                             <Grid item className={classes.flex}>
-                                                <Typography variant="h4">Good Morning,</Typography>
+                                                <Typography variant="h4">Bonjour, </Typography>
                                                 <Typography component="span" variant="h4" className={classes.name}>
-                                                    John
+                                                    &nbsp;{account?.user?.name}
                                                 </Typography>
                                             </Grid>
                                             <Grid item>
-                                                <Typography variant="subtitle2">Project Admin</Typography>
+                                                <Typography variant="subtitle2"></Typography>
                                             </Grid>
                                         </Grid>
                                         <OutlinedInput
@@ -229,7 +232,7 @@ const ProfileSection = () => {
                                             id="input-search-profile"
                                             value={value}
                                             onChange={(e) => setValue(e.target.value)}
-                                            placeholder="Search profile options"
+                                            placeholder="Rechercher parametres"
                                             startAdornment={
                                                 <InputAdornment position="start">
                                                     <IconSearch stroke={1.5} size="1.3rem" className={classes.startAdornment} />
@@ -242,7 +245,7 @@ const ProfileSection = () => {
                                         />
                                         <Divider />
                                         <PerfectScrollbar className={classes.ScrollHeight}>
-                                            <UpgradePlanCard />
+                                            {/* <UpgradePlanCard />
                                             <Divider />
                                             <Card className={classes.card}>
                                                 <CardContent>
@@ -281,7 +284,7 @@ const ProfileSection = () => {
                                                     </Grid>
                                                 </CardContent>
                                             </Card>
-                                            <Divider />
+                                            <Divider /> */}
                                             <List component="nav" className={classes.navContainer}>
                                                 <ListItemButton
                                                     className={classes.listItem}
@@ -292,7 +295,7 @@ const ProfileSection = () => {
                                                     <ListItemIcon>
                                                         <IconLogout stroke={1.5} size="1.3rem" />
                                                     </ListItemIcon>
-                                                    <ListItemText primary={<Typography variant="body2">Logout</Typography>} />
+                                                    <ListItemText primary={<Typography variant="body2">Se déconnecter</Typography>} />
                                                 </ListItemButton>
                                             </List>
                                         </PerfectScrollbar>
